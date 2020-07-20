@@ -1,7 +1,8 @@
 TODO
 Member model and same as Asso
-tests : create tests handling polymorphic association
+tests : create model and controller tests handling polymorphic association
 pundit
+new seeds
 
 ---------------------------------------------
 Models :
