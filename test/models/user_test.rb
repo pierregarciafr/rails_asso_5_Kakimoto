@@ -5,9 +5,14 @@ class UserTest < ActiveSupport::TestCase
 
   def setup
     @user = User.new(email:'test@gmail.com',
-                     password:'password', password_confirmation: 'password',
+                     password:'password',
+                     password_confirmation: 'password'
                      )
-    @asso = Asso.new(name: 'asso_name')
+    @params = { email:'contact@lesdoudoux.com',
+                password:'password',
+                password_confirmation: 'password' }
+    @asso = Asso.new(name: 'les bisounours')
+    @person = Person.new(pseudo: 'tifounette')
 
   end
 
@@ -22,67 +27,55 @@ class UserTest < ActiveSupport::TestCase
     assert_not @user.valid?
   end
 
-  test "should count 2 user fixtures" do
-    assert_equal 2, User.count
-    assert_equal 2, users.length
+
+  test "email should not be too long" do
+    skip
+    @user.email = 'a'*300 << '@gmail.com'
+    assert_not @user.valid?
   end
 
-  test "shortcut should get the expected user fixture"
-    skip
-    assert_equal users(:phil), @phil
-  end
-
-  test "fixture should be valid data" do
-    skip
-    assert @phil.valid?
-    assert @toto.valid?
-  end
-
-  test "should raise error if fixture name doesn't exist" do
-    skip
-    assert_raise(StandardError) { users(:nicolas) }
-  end
-
-  # test "email should not be too long" do
-  #   @user.email = 'a'*300 << '@gmail.com'
-  #   assert_not @user.valid?
-  # end
-
-  test "user should validate undefined asso" do
-    skip
-    @user.asso = nil
+  test "user should validate undefined loginable" do # SHOULDN'T actually
+    @user.loginable = nil
     @user.valid?
   end
 
-  test "user should validate asso" do
-    skip
-    @user.asso = @asso
-    @user.valid?
+  test "user should be created from asso " do
+    assert_difference 'User.count', 1 do
+      @ringos.create_user(@params)
+    end
   end
 
   test "saving User should create instance in database" do
-    skip
     assert_difference 'User.count', 1 do
       @user.save
     end
   end
 
-  test "creating User should create Asso" do
-    skip
-    @user.asso = @asso
-    assert_difference 'Asso.count', 1 do
-      @user.save
+  test "user should be created from Person" do
+    assert_difference 'User.count', 1 do
+      @tifounette.create_user(@params)
+    end
+  end
+
+
+  test "can't create User without creating Asso" do
+    assert_raise(StandardError) {
+      @asso.create_user(@params)
+    }
+  end
+
+  test "can't create User without creating Person" do
+    assert_raise(StandardError) do
+      @person.create_user(@params)
     end
   end
 
   test "destroying User should destroy Asso" do
     skip
-    @user.asso = @asso
-    @user.save
+    @asso.save
+    @asso.create_user(@params)
     assert_difference 'Asso.count', -1 do
-      @user.destroy
+      User.last.destroy
     end
   end
-
-
 end
