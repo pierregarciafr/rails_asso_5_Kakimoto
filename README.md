@@ -1,34 +1,16 @@
-tests
-
+TODO
+Member model and same as Asso
+tests : create tests handling polymorphic association
 pundit
 
-create routes for - new_asso - new_member
-       actions    #new_asso     #new_member
-       class       member
-       polymorphic association
+---------------------------------------------
+Models :
+- User is a Devise model, and belongs to a one-to-one polymorphic association
+- Asso has one User through this association
 
-
-
-
-
-------------  Devise form with nested attributes,
-
-where :
-- User belongs_to asso & accepts_nested_attr
-    has defined the DB paths : user.asso is defined :)
-- Asso has_one User
+Controllers & Views :
+- Assos controller creates a new Asso-User couple with a form
 
 Definition of RegistrationsController
-
-
-- This works :
-User.create(email:'test@gmail.com',
-            password:'password',
-            password_confirmation:'password',
-            asso_attributes: { name: 'nours' })
-
-
-From this tuto,
-https://kakimotonline.com/2014/03/30/extending-devise-registrations-controller/
-
+  
 tests Asso model and Controller
