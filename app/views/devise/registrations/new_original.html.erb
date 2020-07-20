@@ -1,0 +1,29 @@
+
+<%= form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |f| %>
+  <%#= devise_error_messages! %>
+  <div class="controls">
+    <%= f.fields_for :asso do |asso_form| %>
+      <%= asso_form.label :name %><br />
+      <%= asso_form.text_field :name  %>
+      <%#= render partial: "devise/shared/field_error", locals: { model: resource.asso, field: :name } %>
+    <% end %>
+  </div>
+  <div class="controls">
+    <%= f.label :email %><br />
+    <%= f.text_field :email %>
+    <%#= render partial: "devise/shared/field_error", locals: { model: resource, field: :email } %>
+  </div>
+  <div class="controls">
+    <%= f.label :password %><br />
+    <%= f.password_field :password %>
+    <%#= render partial: "devise/shared/field_error", locals: { model: resource, field: :password } %>
+  </div>
+  <div class="controls">
+    <%= f.label :password_confirmation %><br />
+    <%= f.password_field :password_confirmation %>
+    <%#= render partial: "devise/shared/field_error", locals: { model: resource, field: :password_confirmation } %>
+  </div>
+  <%= f.submit "Submit" %>
+<% end %>
+
+<%= render "devise/shared/links" %>

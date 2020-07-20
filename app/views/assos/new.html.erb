@@ -1,6 +1,6 @@
-  <%= devise_error_messages! %>
-  <%#= form_for @asso do |a| %>
-<%= form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |a| %>
+<h1>Assos#new</h1>
+  <%#= devise_error_messages! %>
+  <%= form_for @asso do |a| %>
     <%= a.label :name %>
     <%= a.text_field :name %>
     <%= fields_for @user do |u| %>
@@ -14,5 +14,4 @@
     <%= a.submit "Submit" %>
   <% end %>
 
-<%= render "devise/shared/links" %>
-
+<%#= render "devise/shared/links" %>
