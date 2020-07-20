@@ -1,5 +1,4 @@
-
-tests Asso model and Controller
+tests
 
 pundit
 
@@ -31,3 +30,5 @@ User.create(email:'test@gmail.com',
 
 From this tuto,
 https://kakimotonline.com/2014/03/30/extending-devise-registrations-controller/
+
+tests Asso model and Controller
