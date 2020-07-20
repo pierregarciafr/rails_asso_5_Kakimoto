@@ -1,12 +1,12 @@
-<h1>Assos#new</h1>
+<h1>People#new</h1>
 <%#= devise_error_messages! %>
-<%= form_for @asso do |a| %>
-  <%= a.label :name %>
-  <%= a.text_field :name %>
+<%= form_for @person do |p| %>
+  <%= p.label :pseudo %>
+  <%= p.text_field :pseudo %>
   <%= fields_for @user do |u| %>
     <%= render partial: "devise/registrations/form", locals: { f: u } %>
   <% end %>
-  <%= a.submit "Submit" %>
+  <%= p.submit "Submit" %>
 <% end %>
 
 <%#= render "devise/shared/links" %>
