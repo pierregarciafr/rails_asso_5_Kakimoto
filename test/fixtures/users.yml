@@ -1,0 +1,8 @@
+phil:
+  email: phil@gmail.com
+  encrypted_password: User.digest('password')
+
+toto:
+  email: toto@gmail.com
+  encrypted_password: User.digest('password')
+  asso: ringos

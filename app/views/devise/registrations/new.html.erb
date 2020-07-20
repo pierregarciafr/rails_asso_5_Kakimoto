@@ -1,6 +1,6 @@
 
 <%= form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |f| %>
-  <%= devise_error_messages! %>
+  <%#= devise_error_messages! %>
   <div class="controls">
     <%= f.fields_for :asso do |asso_form| %>
       <%= asso_form.label :name %><br />
