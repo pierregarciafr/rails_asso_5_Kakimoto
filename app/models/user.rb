@@ -7,7 +7,7 @@ class User < ApplicationRecord
   # belongs_to :asso, optional: true, dependent: :destroy
   # accepts_nested_attributes_for :asso
 
-  belongs_to :loginable, polymorphic: true, optional: true
+  belongs_to :loginable, polymorphic: true, touch: true, optional: true
   accepts_nested_attributes_for :loginable
 
   def self.digest(string)
