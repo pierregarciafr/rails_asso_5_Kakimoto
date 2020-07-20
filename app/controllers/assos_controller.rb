@@ -6,7 +6,7 @@ class AssosController < ApplicationController
 
   def create
     @asso = Asso.new(asso_params)
-    @user = User.new(user_params)
+    # @user = User.new(user_params)
     if @asso.save && @asso.create_user(user_params)
       redirect_to @asso
     else
