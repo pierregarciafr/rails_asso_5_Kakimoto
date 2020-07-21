@@ -11,7 +11,7 @@ class UserTest < ActiveSupport::TestCase
     @params = { email:'contact@lesdoudoux.com',
                 password:'password',
                 password_confirmation: 'password' }
-    @asso = Asso.new(name: 'les bisounours')
+    @asso = Asso.new(name: 'les bisounours', register: 'W123456789')
     @person = Person.new(pseudo: 'tifounette')
 
   end
@@ -29,9 +29,8 @@ class UserTest < ActiveSupport::TestCase
 
 
   test "email should not be too long" do
-    skip
-    @user.email = 'a' * 300 << '@gmail.com'
-    assert @user.valid?
+    @user.email = 'a' * 50 << '@gmail.com'
+    assert_not @user.valid?
   end
 
   test "user should validate undefined loginable" do # SHOULDN'T actually
