@@ -1,5 +1,8 @@
 class PeopleController < ApplicationController
   def show
+    @person = Person.find(params[:id])
+    @user = User.find_by(loginable: @person)
+    @location ||= Location.find_by(user_id: @user.id)
   end
 
   def new
