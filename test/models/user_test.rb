@@ -30,8 +30,8 @@ class UserTest < ActiveSupport::TestCase
 
   test "email should not be too long" do
     skip
-    @user.email = 'a'*300 << '@gmail.com'
-    assert_not @user.valid?
+    @user.email = 'a' * 300 << '@gmail.com'
+    assert @user.valid?
   end
 
   test "user should validate undefined loginable" do # SHOULDN'T actually
@@ -71,10 +71,17 @@ class UserTest < ActiveSupport::TestCase
   end
 
   test "destroying User should destroy Asso" do
-    skip
     @asso.save
     @asso.create_user(@params)
     assert_difference 'Asso.count', -1 do
+      User.last.destroy
+    end
+  end
+
+  test "destroying User should destroy Person" do
+    @person.save
+    @person.create_user(@params)
+    assert_difference 'Person.count', -1 do
       User.last.destroy
     end
   end

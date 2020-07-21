@@ -1,4 +1,10 @@
+
+# useless controller
+
+
 class RegistrationsController < Devise::RegistrationsController
+
+
 
   def new # new_asso
     # build_resource({})
@@ -10,13 +16,9 @@ class RegistrationsController < Devise::RegistrationsController
 
   def create
     raise
-    # build_resource(user_params)
     @user = User.new(user_params)
     @asso = Asso.new(asso_params)
-    # @user.loginable = params[:asso]
-    raise
     @user.save
-    # build_resource(sign_up_params)
 
     if @user.save
       flash[:success] = "Inscription réussie !"
