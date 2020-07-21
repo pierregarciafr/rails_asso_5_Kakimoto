@@ -1,3 +1,5 @@
+# useless
+
 class RegistrationsController
 
   def new
