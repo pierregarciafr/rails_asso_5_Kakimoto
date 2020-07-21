@@ -18,7 +18,7 @@ class AssoTest < ActiveSupport::TestCase
   end
 
   test "valid format register should be accepted" do
-    registers = ['W12345678', 'y98765433']
+    registers = ['W123456789', 'y987645433']
     registers.each do |valid_register|
       @asso.register = valid_register
       assert @asso.valid?
@@ -26,7 +26,7 @@ class AssoTest < ActiveSupport::TestCase
   end
 
   test "bad format register should be recused" do
-    registers = ['W1234', 'ezry98765', 'azertyuio']
+    registers = ['W1234', 'ezrys98765', 'azertyuio']
     registers.each do |invalid_register|
       @asso.register = invalid_register
       assert_not @asso.valid?
