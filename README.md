@@ -1,17 +1,22 @@
 TODO
-Member model and same as Asso
 tests : create model and controller tests handling polymorphic association
 pundit
 new seeds
+create Addresses model
 
 ---------------------------------------------
 Models :
-- User is a Devise model, and belongs to a one-to-one polymorphic association
+- User is a Devise model,
+  belongs to Member or Asso through a one-to-one polymorphic association
 - Asso has one User through this association
+- Member has one User
 
 Controllers & Views :
-- Assos controller creates a new Asso-User couple with a form
+- assos and people controllers create a new Asso-User or Person-User couple with a form
 
 Definition of RegistrationsController
-  
-tests Asso model and Controller
+
+tests:
+- User Model, Asso model, Person model, Fixtures
+- Controller
+
