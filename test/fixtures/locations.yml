@@ -1,0 +1,15 @@
+tifounettes:
+  address: 1 rue Sésame
+  user: tifounette
+
+champignons:
+  address: 25 rue des Bolets
+  user: champignon
+
+ringos:
+  address: 50 rue du Four
+  user: ringo
+
+rainbows:
+  address: 80 rue de Rome
+  user: rainbow

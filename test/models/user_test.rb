@@ -22,7 +22,7 @@ class UserTest < ActiveSupport::TestCase
   end
 
   test "email should be unique" do
-skip
+    @user.email =
   end
 
   test "user shouldn't validate empty password" do

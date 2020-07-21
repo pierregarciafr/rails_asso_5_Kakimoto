@@ -1,7 +1,7 @@
-ringos:
+ringo:
   name: the ringos
   register: W123456789
 
-rainbows:
+rainbow:
   name: the rainbows
   register: W987654321
