@@ -21,6 +21,10 @@ class UserTest < ActiveSupport::TestCase
     assert_not @user.valid?
   end
 
+  test "email should be unique" do
+skip
+  end
+
   test "user shouldn't validate empty password" do
     @user.password = ''
     @user.password_confirmation = ''

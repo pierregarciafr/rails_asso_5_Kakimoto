@@ -1,11 +1,13 @@
 <h1>Assos#new</h1>
 <%#= devise_error_messages! %>
 <%= form_for @asso do |a| %>
-  <%= a.label :name %>
-  <%= a.text_field :name %>
+  <%= a.label :name %><br />
+  <%= a.text_field :name %><br />
+  <%= a.label :register %><br />
+  <%= a.text_field :register %><br />
   <%= fields_for @user do |u| %>
     <%= render partial: "devise/registrations/form", locals: { f: u } %>
-  <% end %>
+  <% end %><br />
   <%= a.submit "Submit" %>
 <% end %>
 
