@@ -17,13 +17,14 @@ class AssosController < ApplicationController
     @location = Location.new(location_params)
     # raise
     if @asso.save && @asso.create_user(user_params)
-      # flash[:success] = "Asso et User créés avec succès !"
+      flash[:success] = "Asso et User créés avec succès !"
       @location.user = @asso.user
       if @location.save
-        # flash[:success] = "Localisation créée avec succès !"
+        flash[:success] = "Localisation créée avec succès !"
+        sign_in @asso.user
         redirect_to @asso
       else
-        rendre :new
+        render :new
       end
     else
       render :new
